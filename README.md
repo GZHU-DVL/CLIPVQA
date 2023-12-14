@@ -29,3 +29,21 @@ id,name
 5, Terrible
 ```
 The `id` indicates the  quality class, while the `name` denotes the text description.
+
+# Train
+The config files lie in `configs`. For example, to train CLIPVQA-B/16 with 32 frames on KoNViD-1k on 1 GPUs, you can run
+```
+python -m torch.distributed.launch --nproc_per_node=1 \ 
+main.py -cfg configs/k400/16_32.yaml --output /PATH/TO/OUTPUT --accumulation-steps 4
+```
+
+# Test
+For example, to test the CLIPVQA-B/16 with 32 frames on KoNViD-1k, you can run
+```
+python -m torch.distributed.launch --nproc_per_node=1 main.py \
+-cfg configs/k400/32_8.yaml --output /PATH/TO/OUTPUT --only_test --resume /PATH/TO/CKPT \
+--opts TEST.NUM_CLIP 1 TEST.NUM_CROP 1
+```
+
+# Acknowledgements
+Parts of the codes are borrowed from [mmaction2](https://github.com/open-mmlab/mmaction2), [Swin](https://github.com/microsoft/Swin-Transformer) and [CLIP](https://github.com/openai/CLIP). Sincere thanks to their wonderful works.
