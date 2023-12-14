@@ -1,0 +1,40 @@
+DATA:
+
+    ROOT: r'\home\fengchuang\TimeSformer-main\KoNViD_1k_videos'
+    TRAIN_FILE: r'E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\train.csv'     #####5
+    VAL_FILE: r'E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\test.csv'
+#    ROOT: '/home/fengchuang/zax/LSVQ'
+#    TRAIN_FILE: '/home/fengchuang/TimeSformer-main/dataset_csv/LSVQcsv/LSVQ1080/train.csv'   ####100
+#    VAL_FILE: '/home/fengchuang/TimeSformer-main/dataset_csv/LSVQcsv/LSVQ1080/test.csv'
+#    ROOT: '/home/fengchuang/zax/LSVQ'
+#    TRAIN_FILE: '/home/fengchuang/TimeSformer-main/dataset_csv/LSVQcsv/train.csv'   ####100
+#    VAL_FILE: '/home/fengchuang/TimeSformer-main/dataset_csv/LSVQcsv/test.csv'
+#    ROOT: '/home/fengchuang/zax/LSVQ'
+#    TRAIN_FILE: '/home/fengchuang/TimeSformer-main/dataset_csv/LSVQcsv/LSVQ_new/train.csv'   ####100
+#    VAL_FILE: '/home/fengchuang/TimeSformer-main/dataset_csv/LSVQcsv/LSVQ_new/test.csv'
+    # ROOT: '/home/fengchuang/TimeSformer-main/CNN_features_VQC-585'
+    # TRAIN_FILE: r'.\dataset_csv\kon1kcsv\train.csv'      ######100
+    # VAL_FILE: r'.\dataset_csv\kon1kcsv\test.csv'
+#    ROOT: '/home/fengchuang/zax/CVD2014'
+#    TRAIN_FILE: '/home/fengchuang/TimeSformer-main/dataset_csv/cvd2014csv/train.csv'    ####100
+#    VAL_FILE: '/home/fengchuang/TimeSformer-main/dataset_csv/cvd2014csv/test.csv'
+#    ROOT: '/home/fengchuang/zax/LIVQ'
+#    TRAIN_FILE: '/home/fengchuang/TimeSformer-main/dataset_csv/live-qcsv/train.csv'    ####5
+#    VAL_FILE: '/home/fengchuang/TimeSformer-main/dataset_csv/live-qcsv/test.csv'
+#    ROOT: '/home/fengchuang/zax/DVL2021-4K-206'
+#    TRAIN_FILE: '/home/fengchuang/TimeSformer-main/dataset_csv/dvl2021csv/train.csv'    ####5
+#    VAL_FILE: '/home/fengchuang/TimeSformer-main/dataset_csv/dvl2021csv/test.csv'
+    DATASET: kinetics400
+    NUM_FRAMES: 32
+    NUM_CLASSES: 6
+    LABEL_LIST: '/home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv'
+MODEL:
+    ARCH: ViT-B/16
+#    RESUME: '/home/fengchuang/VideoX-1/X-CLIP/exp/ckpt_epoch_1080p.pth'
+#    RESUME: '/home/fengchuang/VideoX-1/X-CLIP/exp/ckpt_epoch_kon1k.pth'
+#    RESUME: '/home/fengchuang/VideoX-1/X-CLIP/exp/ckpt_epoch_lsvq.pth'
+TRAIN:
+    BATCH_SIZE: 2
+    ACCUMULATION_STEPS: 8
+#TEST:
+#    ONLY_TEST: True

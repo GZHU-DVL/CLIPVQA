@@ -1,0 +1,16 @@
+DATA:
+    ROOT: '/home/fengchuang/TimeSformer-main/KoNViD_1k_videos'   ####/home/fengchuang/zax/UGC-2019/
+    TRAIN_FILE: '/home/fengchuang/TimeSformer-main/dataset_csv/kon1kcsv/train.csv'
+    VAL_FILE: '/home/fengchuang/TimeSformer-main/dataset_csv/kon1kcsv/test.csv'
+    DATASET: kinetics400
+    NUM_FRAMES: 16
+    NUM_CLASSES: 6
+    LABEL_LIST: '/home/fengchuang/VideoX-master/X-CLIP/labels/kinetics_400_labels.csv'
+MODEL:
+    ARCH: ViT-B/32
+    RESUME: '/home/fengchuang/VideoX-master/X-CLIP/exp/k400_32_16.pth'
+TRAIN:
+    BATCH_SIZE: 3
+    ACCUMULATION_STEPS: 1
+TEST:
+    ONLY_TEST: False

@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: decord
+Version: 0.6.0
+Summary: Decord Video Loader
+Home-page: https://github.com/dmlc/decord
+Maintainer: Decord committers
+Maintainer-email: cheungchih@gmail.com
+License: APACHE
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Dist: numpy (>=1.14.0)
+
+UNKNOWN
+
+

@@ -1,0 +1,951 @@
+[2023-12-14 08:01:05 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:01:05 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: /home/fengchuang/TimeSformer-main/CNN_features_VQC-585
+  TRAIN_FILE: /home/fengchuang/TimeSformer-main/dataset_csv/vqccsv/train.csv
+  VAL_FILE: /home/fengchuang/TimeSformer-main/dataset_csv/vqccsv/test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:02:43 ViT-B/16] (clipvqa.py 201): INFO load pretrained CLIP: _IncompatibleKeys(missing_keys=['prompts_visual_proj', 'prompts_generator.alpha', 'prompts_generator.norm.weight', 'prompts_generator.norm.bias', 'prompts_generator.decoder.0.cross_attn.q_proj.weight', 'prompts_generator.decoder.0.cross_attn.k_proj.weight', 'prompts_generator.decoder.0.cross_attn.v_proj.weight', 'prompts_generator.decoder.0.cross_attn.proj.weight', 'prompts_generator.decoder.0.cross_attn.proj.bias', 'prompts_generator.decoder.0.norm1.weight', 'prompts_generator.decoder.0.norm1.bias', 'prompts_generator.decoder.0.norm3.weight', 'prompts_generator.decoder.0.norm3.bias', 'prompts_generator.decoder.0.mlp.0.weight', 'prompts_generator.decoder.0.mlp.0.bias', 'prompts_generator.decoder.0.mlp.3.weight', 'prompts_generator.decoder.0.mlp.3.bias', 'prompts_generator.decoder.1.cross_attn.q_proj.weight', 'prompts_generator.decoder.1.cross_attn.k_proj.weight', 'prompts_generator.decoder.1.cross_attn.v_proj.weight', 'prompts_generator.decoder.1.cross_attn.proj.weight', 'prompts_generator.decoder.1.cross_attn.proj.bias', 'prompts_generator.decoder.1.norm1.weight', 'prompts_generator.decoder.1.norm1.bias', 'prompts_generator.decoder.1.norm3.weight', 'prompts_generator.decoder.1.norm3.bias', 'prompts_generator.decoder.1.mlp.0.weight', 'prompts_generator.decoder.1.mlp.0.bias', 'prompts_generator.decoder.1.mlp.3.weight', 'prompts_generator.decoder.1.mlp.3.bias', 'mit.positional_embedding', 'mit.alpha', 'mit.resblocks.0.attn.in_proj_weight', 'mit.resblocks.0.attn.in_proj_bias', 'mit.resblocks.0.attn.out_proj.weight', 'mit.resblocks.0.attn.out_proj.bias', 'mit.resblocks.0.ln_1.weight', 'mit.resblocks.0.ln_1.bias', 'mit.resblocks.0.mlp.c_fc.weight', 'mit.resblocks.0.mlp.c_fc.bias', 'mit.resblocks.0.mlp.c_proj.weight', 'mit.resblocks.0.mlp.c_proj.bias', 'mit.resblocks.0.ln_2.weight', 'mit.resblocks.0.ln_2.bias', 'visual.transformer.resblocks.0.message_fc.weight', 'visual.transformer.resblocks.0.message_fc.bias', 'visual.transformer.resblocks.0.message_ln.weight', 'visual.transformer.resblocks.0.message_ln.bias', 'visual.transformer.resblocks.0.message_attn.in_proj_weight', 'visual.transformer.resblocks.0.message_attn.in_proj_bias', 'visual.transformer.resblocks.0.message_attn.out_proj.weight', 'visual.transformer.resblocks.0.message_attn.out_proj.bias', 'visual.transformer.resblocks.1.message_fc.weight', 'visual.transformer.resblocks.1.message_fc.bias', 'visual.transformer.resblocks.1.message_ln.weight', 'visual.transformer.resblocks.1.message_ln.bias', 'visual.transformer.resblocks.1.message_attn.in_proj_weight', 'visual.transformer.resblocks.1.message_attn.in_proj_bias', 'visual.transformer.resblocks.1.message_attn.out_proj.weight', 'visual.transformer.resblocks.1.message_attn.out_proj.bias', 'visual.transformer.resblocks.2.message_fc.weight', 'visual.transformer.resblocks.2.message_fc.bias', 'visual.transformer.resblocks.2.message_ln.weight', 'visual.transformer.resblocks.2.message_ln.bias', 'visual.transformer.resblocks.2.message_attn.in_proj_weight', 'visual.transformer.resblocks.2.message_attn.in_proj_bias', 'visual.transformer.resblocks.2.message_attn.out_proj.weight', 'visual.transformer.resblocks.2.message_attn.out_proj.bias', 'visual.transformer.resblocks.3.message_fc.weight', 'visual.transformer.resblocks.3.message_fc.bias', 'visual.transformer.resblocks.3.message_ln.weight', 'visual.transformer.resblocks.3.message_ln.bias', 'visual.transformer.resblocks.3.message_attn.in_proj_weight', 'visual.transformer.resblocks.3.message_attn.in_proj_bias', 'visual.transformer.resblocks.3.message_attn.out_proj.weight', 'visual.transformer.resblocks.3.message_attn.out_proj.bias', 'visual.transformer.resblocks.4.message_fc.weight', 'visual.transformer.resblocks.4.message_fc.bias', 'visual.transformer.resblocks.4.message_ln.weight', 'visual.transformer.resblocks.4.message_ln.bias', 'visual.transformer.resblocks.4.message_attn.in_proj_weight', 'visual.transformer.resblocks.4.message_attn.in_proj_bias', 'visual.transformer.resblocks.4.message_attn.out_proj.weight', 'visual.transformer.resblocks.4.message_attn.out_proj.bias', 'visual.transformer.resblocks.5.message_fc.weight', 'visual.transformer.resblocks.5.message_fc.bias', 'visual.transformer.resblocks.5.message_ln.weight', 'visual.transformer.resblocks.5.message_ln.bias', 'visual.transformer.resblocks.5.message_attn.in_proj_weight', 'visual.transformer.resblocks.5.message_attn.in_proj_bias', 'visual.transformer.resblocks.5.message_attn.out_proj.weight', 'visual.transformer.resblocks.5.message_attn.out_proj.bias', 'visual.transformer.resblocks.6.message_fc.weight', 'visual.transformer.resblocks.6.message_fc.bias', 'visual.transformer.resblocks.6.message_ln.weight', 'visual.transformer.resblocks.6.message_ln.bias', 'visual.transformer.resblocks.6.message_attn.in_proj_weight', 'visual.transformer.resblocks.6.message_attn.in_proj_bias', 'visual.transformer.resblocks.6.message_attn.out_proj.weight', 'visual.transformer.resblocks.6.message_attn.out_proj.bias', 'visual.transformer.resblocks.7.message_fc.weight', 'visual.transformer.resblocks.7.message_fc.bias', 'visual.transformer.resblocks.7.message_ln.weight', 'visual.transformer.resblocks.7.message_ln.bias', 'visual.transformer.resblocks.7.message_attn.in_proj_weight', 'visual.transformer.resblocks.7.message_attn.in_proj_bias', 'visual.transformer.resblocks.7.message_attn.out_proj.weight', 'visual.transformer.resblocks.7.message_attn.out_proj.bias', 'visual.transformer.resblocks.8.message_fc.weight', 'visual.transformer.resblocks.8.message_fc.bias', 'visual.transformer.resblocks.8.message_ln.weight', 'visual.transformer.resblocks.8.message_ln.bias', 'visual.transformer.resblocks.8.message_attn.in_proj_weight', 'visual.transformer.resblocks.8.message_attn.in_proj_bias', 'visual.transformer.resblocks.8.message_attn.out_proj.weight', 'visual.transformer.resblocks.8.message_attn.out_proj.bias', 'visual.transformer.resblocks.9.message_fc.weight', 'visual.transformer.resblocks.9.message_fc.bias', 'visual.transformer.resblocks.9.message_ln.weight', 'visual.transformer.resblocks.9.message_ln.bias', 'visual.transformer.resblocks.9.message_attn.in_proj_weight', 'visual.transformer.resblocks.9.message_attn.in_proj_bias', 'visual.transformer.resblocks.9.message_attn.out_proj.weight', 'visual.transformer.resblocks.9.message_attn.out_proj.bias', 'visual.transformer.resblocks.10.message_fc.weight', 'visual.transformer.resblocks.10.message_fc.bias', 'visual.transformer.resblocks.10.message_ln.weight', 'visual.transformer.resblocks.10.message_ln.bias', 'visual.transformer.resblocks.10.message_attn.in_proj_weight', 'visual.transformer.resblocks.10.message_attn.in_proj_bias', 'visual.transformer.resblocks.10.message_attn.out_proj.weight', 'visual.transformer.resblocks.10.message_attn.out_proj.bias', 'visual.transformer.resblocks.11.message_fc.weight', 'visual.transformer.resblocks.11.message_fc.bias', 'visual.transformer.resblocks.11.message_ln.weight', 'visual.transformer.resblocks.11.message_ln.bias', 'visual.transformer.resblocks.11.message_attn.in_proj_weight', 'visual.transformer.resblocks.11.message_attn.in_proj_bias', 'visual.transformer.resblocks.11.message_attn.out_proj.weight', 'visual.transformer.resblocks.11.message_attn.out_proj.bias', 'prompts_visual_ln.weight', 'prompts_visual_ln.bias', 'conv2.weight'], unexpected_keys=[])
+[2023-12-14 08:06:01 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:06:01 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:06:01 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: /home/fengchuang/TimeSformer-main/CNN_features_VQC-585
+  TRAIN_FILE: /home/fengchuang/TimeSformer-main/dataset_csv/vqccsv/train.csv
+  VAL_FILE: /home/fengchuang/TimeSformer-main/dataset_csv/vqccsv/test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:06:01 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: /home/fengchuang/TimeSformer-main/CNN_features_VQC-585
+  TRAIN_FILE: /home/fengchuang/TimeSformer-main/dataset_csv/vqccsv/train.csv
+  VAL_FILE: /home/fengchuang/TimeSformer-main/dataset_csv/vqccsv/test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:11:23 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:11:23 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:11:23 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:11:23 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: /home/fengchuang/TimeSformer-main/CNN_features_VQC-585
+  TRAIN_FILE: .\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: .\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:11:23 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: /home/fengchuang/TimeSformer-main/CNN_features_VQC-585
+  TRAIN_FILE: .\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: .\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:11:23 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: /home/fengchuang/TimeSformer-main/CNN_features_VQC-585
+  TRAIN_FILE: .\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: .\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:28:29 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:28:29 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: 
+  TRAIN_FILE: 
+  VAL_FILE: 
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:34:30 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:34:30 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:34:30 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: \home\fengchuang\TimeSformer-main\KoNViD_1k_videos
+  TRAIN_FILE: D:\桌面\CLIPVQA\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: D:\桌面\CLIPVQA\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:34:30 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: \home\fengchuang\TimeSformer-main\KoNViD_1k_videos
+  TRAIN_FILE: D:\桌面\CLIPVQA\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: D:\桌面\CLIPVQA\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:35:32 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:35:32 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:35:32 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:35:32 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: \home\fengchuang\TimeSformer-main\KoNViD_1k_videos
+  TRAIN_FILE: D:\desktop\CLIPVQA\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: D:\desktop\CLIPVQA\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:35:32 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: \home\fengchuang\TimeSformer-main\KoNViD_1k_videos
+  TRAIN_FILE: D:\desktop\CLIPVQA\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: D:\desktop\CLIPVQA\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:35:32 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: \home\fengchuang\TimeSformer-main\KoNViD_1k_videos
+  TRAIN_FILE: D:\desktop\CLIPVQA\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: D:\desktop\CLIPVQA\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:36:46 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:36:46 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:36:46 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:36:46 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:36:46 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: \home\fengchuang\TimeSformer-main\KoNViD_1k_videos
+  TRAIN_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:36:46 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: \home\fengchuang\TimeSformer-main\KoNViD_1k_videos
+  TRAIN_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:36:46 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: \home\fengchuang\TimeSformer-main\KoNViD_1k_videos
+  TRAIN_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:36:46 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: \home\fengchuang\TimeSformer-main\KoNViD_1k_videos
+  TRAIN_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:37:36 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:37:36 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:37:36 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:37:36 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:37:36 ViT-B/16] (main.py 338): INFO working dir: exp
+[2023-12-14 08:37:36 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: \home\fengchuang\TimeSformer-main\KoNViD_1k_videos
+  TRAIN_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:37:36 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: \home\fengchuang\TimeSformer-main\KoNViD_1k_videos
+  TRAIN_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:37:36 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: \home\fengchuang\TimeSformer-main\KoNViD_1k_videos
+  TRAIN_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:37:36 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: \home\fengchuang\TimeSformer-main\KoNViD_1k_videos
+  TRAIN_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:37:36 ViT-B/16] (main.py 341): INFO AUG:
+  COLOR_JITTER: 0.8
+  CUTMIX: 1.0
+  GRAY_SCALE: 0.2
+  LABEL_SMOOTH: 0.1
+  MIXUP: 0.8
+  MIXUP_SWITCH_PROB: 0.5
+BASE: ['']
+DATA:
+  DATASET: kinetics400
+  INPUT_SIZE: 224
+  LABEL_LIST: /home/fengchuang/VideoX-master/X-CLIP/labels/labels.csv
+  NUM_CLASSES: 6
+  NUM_FRAMES: 32
+  ROOT: \home\fengchuang\TimeSformer-main\KoNViD_1k_videos
+  TRAIN_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\train.csv
+  VAL_FILE: E:\VideoX-1\X-CLIP\dataset_csv\kon1kcsv\test.csv
+LOCAL_RANK: 0
+MODEL:
+  ARCH: ViT-B/16
+  DROP_PATH_RATE: 0.0
+  FIX_TEXT: True
+  PRETRAINED: None
+  RESUME: None
+OUTPUT: exp
+PRINT_FREQ: 50
+SAVE_FREQ: 1
+SEED: 1024
+TEST:
+  NUM_CLIP: 1
+  NUM_CROP: 1
+  ONLY_TEST: False
+TRAIN:
+  ACCUMULATION_STEPS: 8
+  AUTO_RESUME: False
+  BATCH_SIZE: 2
+  EPOCHS: 40
+  LR: 8e-06
+  LR_SCHEDULER: cosine
+  OPTIMIZER: adamw
+  OPT_LEVEL: O1
+  USE_CHECKPOINT: False
+  WARMUP_EPOCHS: 5
+  WEIGHT_DECAY: 0.001
+[2023-12-14 08:37:40 ViT-B/16] (clipvqa.py 201): INFO load pretrained CLIP: _IncompatibleKeys(missing_keys=['prompts_visual_proj', 'prompts_generator.alpha', 'prompts_generator.norm.weight', 'prompts_generator.norm.bias', 'prompts_generator.decoder.0.cross_attn.q_proj.weight', 'prompts_generator.decoder.0.cross_attn.k_proj.weight', 'prompts_generator.decoder.0.cross_attn.v_proj.weight', 'prompts_generator.decoder.0.cross_attn.proj.weight', 'prompts_generator.decoder.0.cross_attn.proj.bias', 'prompts_generator.decoder.0.norm1.weight', 'prompts_generator.decoder.0.norm1.bias', 'prompts_generator.decoder.0.norm3.weight', 'prompts_generator.decoder.0.norm3.bias', 'prompts_generator.decoder.0.mlp.0.weight', 'prompts_generator.decoder.0.mlp.0.bias', 'prompts_generator.decoder.0.mlp.3.weight', 'prompts_generator.decoder.0.mlp.3.bias', 'prompts_generator.decoder.1.cross_attn.q_proj.weight', 'prompts_generator.decoder.1.cross_attn.k_proj.weight', 'prompts_generator.decoder.1.cross_attn.v_proj.weight', 'prompts_generator.decoder.1.cross_attn.proj.weight', 'prompts_generator.decoder.1.cross_attn.proj.bias', 'prompts_generator.decoder.1.norm1.weight', 'prompts_generator.decoder.1.norm1.bias', 'prompts_generator.decoder.1.norm3.weight', 'prompts_generator.decoder.1.norm3.bias', 'prompts_generator.decoder.1.mlp.0.weight', 'prompts_generator.decoder.1.mlp.0.bias', 'prompts_generator.decoder.1.mlp.3.weight', 'prompts_generator.decoder.1.mlp.3.bias', 'mit.positional_embedding', 'mit.alpha', 'mit.resblocks.0.attn.in_proj_weight', 'mit.resblocks.0.attn.in_proj_bias', 'mit.resblocks.0.attn.out_proj.weight', 'mit.resblocks.0.attn.out_proj.bias', 'mit.resblocks.0.ln_1.weight', 'mit.resblocks.0.ln_1.bias', 'mit.resblocks.0.mlp.c_fc.weight', 'mit.resblocks.0.mlp.c_fc.bias', 'mit.resblocks.0.mlp.c_proj.weight', 'mit.resblocks.0.mlp.c_proj.bias', 'mit.resblocks.0.ln_2.weight', 'mit.resblocks.0.ln_2.bias', 'visual.transformer.resblocks.0.message_fc.weight', 'visual.transformer.resblocks.0.message_fc.bias', 'visual.transformer.resblocks.0.message_ln.weight', 'visual.transformer.resblocks.0.message_ln.bias', 'visual.transformer.resblocks.0.message_attn.in_proj_weight', 'visual.transformer.resblocks.0.message_attn.in_proj_bias', 'visual.transformer.resblocks.0.message_attn.out_proj.weight', 'visual.transformer.resblocks.0.message_attn.out_proj.bias', 'visual.transformer.resblocks.1.message_fc.weight', 'visual.transformer.resblocks.1.message_fc.bias', 'visual.transformer.resblocks.1.message_ln.weight', 'visual.transformer.resblocks.1.message_ln.bias', 'visual.transformer.resblocks.1.message_attn.in_proj_weight', 'visual.transformer.resblocks.1.message_attn.in_proj_bias', 'visual.transformer.resblocks.1.message_attn.out_proj.weight', 'visual.transformer.resblocks.1.message_attn.out_proj.bias', 'visual.transformer.resblocks.2.message_fc.weight', 'visual.transformer.resblocks.2.message_fc.bias', 'visual.transformer.resblocks.2.message_ln.weight', 'visual.transformer.resblocks.2.message_ln.bias', 'visual.transformer.resblocks.2.message_attn.in_proj_weight', 'visual.transformer.resblocks.2.message_attn.in_proj_bias', 'visual.transformer.resblocks.2.message_attn.out_proj.weight', 'visual.transformer.resblocks.2.message_attn.out_proj.bias', 'visual.transformer.resblocks.3.message_fc.weight', 'visual.transformer.resblocks.3.message_fc.bias', 'visual.transformer.resblocks.3.message_ln.weight', 'visual.transformer.resblocks.3.message_ln.bias', 'visual.transformer.resblocks.3.message_attn.in_proj_weight', 'visual.transformer.resblocks.3.message_attn.in_proj_bias', 'visual.transformer.resblocks.3.message_attn.out_proj.weight', 'visual.transformer.resblocks.3.message_attn.out_proj.bias', 'visual.transformer.resblocks.4.message_fc.weight', 'visual.transformer.resblocks.4.message_fc.bias', 'visual.transformer.resblocks.4.message_ln.weight', 'visual.transformer.resblocks.4.message_ln.bias', 'visual.transformer.resblocks.4.message_attn.in_proj_weight', 'visual.transformer.resblocks.4.message_attn.in_proj_bias', 'visual.transformer.resblocks.4.message_attn.out_proj.weight', 'visual.transformer.resblocks.4.message_attn.out_proj.bias', 'visual.transformer.resblocks.5.message_fc.weight', 'visual.transformer.resblocks.5.message_fc.bias', 'visual.transformer.resblocks.5.message_ln.weight', 'visual.transformer.resblocks.5.message_ln.bias', 'visual.transformer.resblocks.5.message_attn.in_proj_weight', 'visual.transformer.resblocks.5.message_attn.in_proj_bias', 'visual.transformer.resblocks.5.message_attn.out_proj.weight', 'visual.transformer.resblocks.5.message_attn.out_proj.bias', 'visual.transformer.resblocks.6.message_fc.weight', 'visual.transformer.resblocks.6.message_fc.bias', 'visual.transformer.resblocks.6.message_ln.weight', 'visual.transformer.resblocks.6.message_ln.bias', 'visual.transformer.resblocks.6.message_attn.in_proj_weight', 'visual.transformer.resblocks.6.message_attn.in_proj_bias', 'visual.transformer.resblocks.6.message_attn.out_proj.weight', 'visual.transformer.resblocks.6.message_attn.out_proj.bias', 'visual.transformer.resblocks.7.message_fc.weight', 'visual.transformer.resblocks.7.message_fc.bias', 'visual.transformer.resblocks.7.message_ln.weight', 'visual.transformer.resblocks.7.message_ln.bias', 'visual.transformer.resblocks.7.message_attn.in_proj_weight', 'visual.transformer.resblocks.7.message_attn.in_proj_bias', 'visual.transformer.resblocks.7.message_attn.out_proj.weight', 'visual.transformer.resblocks.7.message_attn.out_proj.bias', 'visual.transformer.resblocks.8.message_fc.weight', 'visual.transformer.resblocks.8.message_fc.bias', 'visual.transformer.resblocks.8.message_ln.weight', 'visual.transformer.resblocks.8.message_ln.bias', 'visual.transformer.resblocks.8.message_attn.in_proj_weight', 'visual.transformer.resblocks.8.message_attn.in_proj_bias', 'visual.transformer.resblocks.8.message_attn.out_proj.weight', 'visual.transformer.resblocks.8.message_attn.out_proj.bias', 'visual.transformer.resblocks.9.message_fc.weight', 'visual.transformer.resblocks.9.message_fc.bias', 'visual.transformer.resblocks.9.message_ln.weight', 'visual.transformer.resblocks.9.message_ln.bias', 'visual.transformer.resblocks.9.message_attn.in_proj_weight', 'visual.transformer.resblocks.9.message_attn.in_proj_bias', 'visual.transformer.resblocks.9.message_attn.out_proj.weight', 'visual.transformer.resblocks.9.message_attn.out_proj.bias', 'visual.transformer.resblocks.10.message_fc.weight', 'visual.transformer.resblocks.10.message_fc.bias', 'visual.transformer.resblocks.10.message_ln.weight', 'visual.transformer.resblocks.10.message_ln.bias', 'visual.transformer.resblocks.10.message_attn.in_proj_weight', 'visual.transformer.resblocks.10.message_attn.in_proj_bias', 'visual.transformer.resblocks.10.message_attn.out_proj.weight', 'visual.transformer.resblocks.10.message_attn.out_proj.bias', 'visual.transformer.resblocks.11.message_fc.weight', 'visual.transformer.resblocks.11.message_fc.bias', 'visual.transformer.resblocks.11.message_ln.weight', 'visual.transformer.resblocks.11.message_ln.bias', 'visual.transformer.resblocks.11.message_attn.in_proj_weight', 'visual.transformer.resblocks.11.message_attn.in_proj_bias', 'visual.transformer.resblocks.11.message_attn.out_proj.weight', 'visual.transformer.resblocks.11.message_attn.out_proj.bias', 'prompts_visual_ln.weight', 'prompts_visual_ln.bias', 'conv2.weight'], unexpected_keys=[])
+[2023-12-14 08:37:40 ViT-B/16] (clipvqa.py 201): INFO load pretrained CLIP: _IncompatibleKeys(missing_keys=['prompts_visual_proj', 'prompts_generator.alpha', 'prompts_generator.norm.weight', 'prompts_generator.norm.bias', 'prompts_generator.decoder.0.cross_attn.q_proj.weight', 'prompts_generator.decoder.0.cross_attn.k_proj.weight', 'prompts_generator.decoder.0.cross_attn.v_proj.weight', 'prompts_generator.decoder.0.cross_attn.proj.weight', 'prompts_generator.decoder.0.cross_attn.proj.bias', 'prompts_generator.decoder.0.norm1.weight', 'prompts_generator.decoder.0.norm1.bias', 'prompts_generator.decoder.0.norm3.weight', 'prompts_generator.decoder.0.norm3.bias', 'prompts_generator.decoder.0.mlp.0.weight', 'prompts_generator.decoder.0.mlp.0.bias', 'prompts_generator.decoder.0.mlp.3.weight', 'prompts_generator.decoder.0.mlp.3.bias', 'prompts_generator.decoder.1.cross_attn.q_proj.weight', 'prompts_generator.decoder.1.cross_attn.k_proj.weight', 'prompts_generator.decoder.1.cross_attn.v_proj.weight', 'prompts_generator.decoder.1.cross_attn.proj.weight', 'prompts_generator.decoder.1.cross_attn.proj.bias', 'prompts_generator.decoder.1.norm1.weight', 'prompts_generator.decoder.1.norm1.bias', 'prompts_generator.decoder.1.norm3.weight', 'prompts_generator.decoder.1.norm3.bias', 'prompts_generator.decoder.1.mlp.0.weight', 'prompts_generator.decoder.1.mlp.0.bias', 'prompts_generator.decoder.1.mlp.3.weight', 'prompts_generator.decoder.1.mlp.3.bias', 'mit.positional_embedding', 'mit.alpha', 'mit.resblocks.0.attn.in_proj_weight', 'mit.resblocks.0.attn.in_proj_bias', 'mit.resblocks.0.attn.out_proj.weight', 'mit.resblocks.0.attn.out_proj.bias', 'mit.resblocks.0.ln_1.weight', 'mit.resblocks.0.ln_1.bias', 'mit.resblocks.0.mlp.c_fc.weight', 'mit.resblocks.0.mlp.c_fc.bias', 'mit.resblocks.0.mlp.c_proj.weight', 'mit.resblocks.0.mlp.c_proj.bias', 'mit.resblocks.0.ln_2.weight', 'mit.resblocks.0.ln_2.bias', 'visual.transformer.resblocks.0.message_fc.weight', 'visual.transformer.resblocks.0.message_fc.bias', 'visual.transformer.resblocks.0.message_ln.weight', 'visual.transformer.resblocks.0.message_ln.bias', 'visual.transformer.resblocks.0.message_attn.in_proj_weight', 'visual.transformer.resblocks.0.message_attn.in_proj_bias', 'visual.transformer.resblocks.0.message_attn.out_proj.weight', 'visual.transformer.resblocks.0.message_attn.out_proj.bias', 'visual.transformer.resblocks.1.message_fc.weight', 'visual.transformer.resblocks.1.message_fc.bias', 'visual.transformer.resblocks.1.message_ln.weight', 'visual.transformer.resblocks.1.message_ln.bias', 'visual.transformer.resblocks.1.message_attn.in_proj_weight', 'visual.transformer.resblocks.1.message_attn.in_proj_bias', 'visual.transformer.resblocks.1.message_attn.out_proj.weight', 'visual.transformer.resblocks.1.message_attn.out_proj.bias', 'visual.transformer.resblocks.2.message_fc.weight', 'visual.transformer.resblocks.2.message_fc.bias', 'visual.transformer.resblocks.2.message_ln.weight', 'visual.transformer.resblocks.2.message_ln.bias', 'visual.transformer.resblocks.2.message_attn.in_proj_weight', 'visual.transformer.resblocks.2.message_attn.in_proj_bias', 'visual.transformer.resblocks.2.message_attn.out_proj.weight', 'visual.transformer.resblocks.2.message_attn.out_proj.bias', 'visual.transformer.resblocks.3.message_fc.weight', 'visual.transformer.resblocks.3.message_fc.bias', 'visual.transformer.resblocks.3.message_ln.weight', 'visual.transformer.resblocks.3.message_ln.bias', 'visual.transformer.resblocks.3.message_attn.in_proj_weight', 'visual.transformer.resblocks.3.message_attn.in_proj_bias', 'visual.transformer.resblocks.3.message_attn.out_proj.weight', 'visual.transformer.resblocks.3.message_attn.out_proj.bias', 'visual.transformer.resblocks.4.message_fc.weight', 'visual.transformer.resblocks.4.message_fc.bias', 'visual.transformer.resblocks.4.message_ln.weight', 'visual.transformer.resblocks.4.message_ln.bias', 'visual.transformer.resblocks.4.message_attn.in_proj_weight', 'visual.transformer.resblocks.4.message_attn.in_proj_bias', 'visual.transformer.resblocks.4.message_attn.out_proj.weight', 'visual.transformer.resblocks.4.message_attn.out_proj.bias', 'visual.transformer.resblocks.5.message_fc.weight', 'visual.transformer.resblocks.5.message_fc.bias', 'visual.transformer.resblocks.5.message_ln.weight', 'visual.transformer.resblocks.5.message_ln.bias', 'visual.transformer.resblocks.5.message_attn.in_proj_weight', 'visual.transformer.resblocks.5.message_attn.in_proj_bias', 'visual.transformer.resblocks.5.message_attn.out_proj.weight', 'visual.transformer.resblocks.5.message_attn.out_proj.bias', 'visual.transformer.resblocks.6.message_fc.weight', 'visual.transformer.resblocks.6.message_fc.bias', 'visual.transformer.resblocks.6.message_ln.weight', 'visual.transformer.resblocks.6.message_ln.bias', 'visual.transformer.resblocks.6.message_attn.in_proj_weight', 'visual.transformer.resblocks.6.message_attn.in_proj_bias', 'visual.transformer.resblocks.6.message_attn.out_proj.weight', 'visual.transformer.resblocks.6.message_attn.out_proj.bias', 'visual.transformer.resblocks.7.message_fc.weight', 'visual.transformer.resblocks.7.message_fc.bias', 'visual.transformer.resblocks.7.message_ln.weight', 'visual.transformer.resblocks.7.message_ln.bias', 'visual.transformer.resblocks.7.message_attn.in_proj_weight', 'visual.transformer.resblocks.7.message_attn.in_proj_bias', 'visual.transformer.resblocks.7.message_attn.out_proj.weight', 'visual.transformer.resblocks.7.message_attn.out_proj.bias', 'visual.transformer.resblocks.8.message_fc.weight', 'visual.transformer.resblocks.8.message_fc.bias', 'visual.transformer.resblocks.8.message_ln.weight', 'visual.transformer.resblocks.8.message_ln.bias', 'visual.transformer.resblocks.8.message_attn.in_proj_weight', 'visual.transformer.resblocks.8.message_attn.in_proj_bias', 'visual.transformer.resblocks.8.message_attn.out_proj.weight', 'visual.transformer.resblocks.8.message_attn.out_proj.bias', 'visual.transformer.resblocks.9.message_fc.weight', 'visual.transformer.resblocks.9.message_fc.bias', 'visual.transformer.resblocks.9.message_ln.weight', 'visual.transformer.resblocks.9.message_ln.bias', 'visual.transformer.resblocks.9.message_attn.in_proj_weight', 'visual.transformer.resblocks.9.message_attn.in_proj_bias', 'visual.transformer.resblocks.9.message_attn.out_proj.weight', 'visual.transformer.resblocks.9.message_attn.out_proj.bias', 'visual.transformer.resblocks.10.message_fc.weight', 'visual.transformer.resblocks.10.message_fc.bias', 'visual.transformer.resblocks.10.message_ln.weight', 'visual.transformer.resblocks.10.message_ln.bias', 'visual.transformer.resblocks.10.message_attn.in_proj_weight', 'visual.transformer.resblocks.10.message_attn.in_proj_bias', 'visual.transformer.resblocks.10.message_attn.out_proj.weight', 'visual.transformer.resblocks.10.message_attn.out_proj.bias', 'visual.transformer.resblocks.11.message_fc.weight', 'visual.transformer.resblocks.11.message_fc.bias', 'visual.transformer.resblocks.11.message_ln.weight', 'visual.transformer.resblocks.11.message_ln.bias', 'visual.transformer.resblocks.11.message_attn.in_proj_weight', 'visual.transformer.resblocks.11.message_attn.in_proj_bias', 'visual.transformer.resblocks.11.message_attn.out_proj.weight', 'visual.transformer.resblocks.11.message_attn.out_proj.bias', 'prompts_visual_ln.weight', 'prompts_visual_ln.bias', 'conv2.weight'], unexpected_keys=[])
+[2023-12-14 08:37:40 ViT-B/16] (clipvqa.py 201): INFO load pretrained CLIP: _IncompatibleKeys(missing_keys=['prompts_visual_proj', 'prompts_generator.alpha', 'prompts_generator.norm.weight', 'prompts_generator.norm.bias', 'prompts_generator.decoder.0.cross_attn.q_proj.weight', 'prompts_generator.decoder.0.cross_attn.k_proj.weight', 'prompts_generator.decoder.0.cross_attn.v_proj.weight', 'prompts_generator.decoder.0.cross_attn.proj.weight', 'prompts_generator.decoder.0.cross_attn.proj.bias', 'prompts_generator.decoder.0.norm1.weight', 'prompts_generator.decoder.0.norm1.bias', 'prompts_generator.decoder.0.norm3.weight', 'prompts_generator.decoder.0.norm3.bias', 'prompts_generator.decoder.0.mlp.0.weight', 'prompts_generator.decoder.0.mlp.0.bias', 'prompts_generator.decoder.0.mlp.3.weight', 'prompts_generator.decoder.0.mlp.3.bias', 'prompts_generator.decoder.1.cross_attn.q_proj.weight', 'prompts_generator.decoder.1.cross_attn.k_proj.weight', 'prompts_generator.decoder.1.cross_attn.v_proj.weight', 'prompts_generator.decoder.1.cross_attn.proj.weight', 'prompts_generator.decoder.1.cross_attn.proj.bias', 'prompts_generator.decoder.1.norm1.weight', 'prompts_generator.decoder.1.norm1.bias', 'prompts_generator.decoder.1.norm3.weight', 'prompts_generator.decoder.1.norm3.bias', 'prompts_generator.decoder.1.mlp.0.weight', 'prompts_generator.decoder.1.mlp.0.bias', 'prompts_generator.decoder.1.mlp.3.weight', 'prompts_generator.decoder.1.mlp.3.bias', 'mit.positional_embedding', 'mit.alpha', 'mit.resblocks.0.attn.in_proj_weight', 'mit.resblocks.0.attn.in_proj_bias', 'mit.resblocks.0.attn.out_proj.weight', 'mit.resblocks.0.attn.out_proj.bias', 'mit.resblocks.0.ln_1.weight', 'mit.resblocks.0.ln_1.bias', 'mit.resblocks.0.mlp.c_fc.weight', 'mit.resblocks.0.mlp.c_fc.bias', 'mit.resblocks.0.mlp.c_proj.weight', 'mit.resblocks.0.mlp.c_proj.bias', 'mit.resblocks.0.ln_2.weight', 'mit.resblocks.0.ln_2.bias', 'visual.transformer.resblocks.0.message_fc.weight', 'visual.transformer.resblocks.0.message_fc.bias', 'visual.transformer.resblocks.0.message_ln.weight', 'visual.transformer.resblocks.0.message_ln.bias', 'visual.transformer.resblocks.0.message_attn.in_proj_weight', 'visual.transformer.resblocks.0.message_attn.in_proj_bias', 'visual.transformer.resblocks.0.message_attn.out_proj.weight', 'visual.transformer.resblocks.0.message_attn.out_proj.bias', 'visual.transformer.resblocks.1.message_fc.weight', 'visual.transformer.resblocks.1.message_fc.bias', 'visual.transformer.resblocks.1.message_ln.weight', 'visual.transformer.resblocks.1.message_ln.bias', 'visual.transformer.resblocks.1.message_attn.in_proj_weight', 'visual.transformer.resblocks.1.message_attn.in_proj_bias', 'visual.transformer.resblocks.1.message_attn.out_proj.weight', 'visual.transformer.resblocks.1.message_attn.out_proj.bias', 'visual.transformer.resblocks.2.message_fc.weight', 'visual.transformer.resblocks.2.message_fc.bias', 'visual.transformer.resblocks.2.message_ln.weight', 'visual.transformer.resblocks.2.message_ln.bias', 'visual.transformer.resblocks.2.message_attn.in_proj_weight', 'visual.transformer.resblocks.2.message_attn.in_proj_bias', 'visual.transformer.resblocks.2.message_attn.out_proj.weight', 'visual.transformer.resblocks.2.message_attn.out_proj.bias', 'visual.transformer.resblocks.3.message_fc.weight', 'visual.transformer.resblocks.3.message_fc.bias', 'visual.transformer.resblocks.3.message_ln.weight', 'visual.transformer.resblocks.3.message_ln.bias', 'visual.transformer.resblocks.3.message_attn.in_proj_weight', 'visual.transformer.resblocks.3.message_attn.in_proj_bias', 'visual.transformer.resblocks.3.message_attn.out_proj.weight', 'visual.transformer.resblocks.3.message_attn.out_proj.bias', 'visual.transformer.resblocks.4.message_fc.weight', 'visual.transformer.resblocks.4.message_fc.bias', 'visual.transformer.resblocks.4.message_ln.weight', 'visual.transformer.resblocks.4.message_ln.bias', 'visual.transformer.resblocks.4.message_attn.in_proj_weight', 'visual.transformer.resblocks.4.message_attn.in_proj_bias', 'visual.transformer.resblocks.4.message_attn.out_proj.weight', 'visual.transformer.resblocks.4.message_attn.out_proj.bias', 'visual.transformer.resblocks.5.message_fc.weight', 'visual.transformer.resblocks.5.message_fc.bias', 'visual.transformer.resblocks.5.message_ln.weight', 'visual.transformer.resblocks.5.message_ln.bias', 'visual.transformer.resblocks.5.message_attn.in_proj_weight', 'visual.transformer.resblocks.5.message_attn.in_proj_bias', 'visual.transformer.resblocks.5.message_attn.out_proj.weight', 'visual.transformer.resblocks.5.message_attn.out_proj.bias', 'visual.transformer.resblocks.6.message_fc.weight', 'visual.transformer.resblocks.6.message_fc.bias', 'visual.transformer.resblocks.6.message_ln.weight', 'visual.transformer.resblocks.6.message_ln.bias', 'visual.transformer.resblocks.6.message_attn.in_proj_weight', 'visual.transformer.resblocks.6.message_attn.in_proj_bias', 'visual.transformer.resblocks.6.message_attn.out_proj.weight', 'visual.transformer.resblocks.6.message_attn.out_proj.bias', 'visual.transformer.resblocks.7.message_fc.weight', 'visual.transformer.resblocks.7.message_fc.bias', 'visual.transformer.resblocks.7.message_ln.weight', 'visual.transformer.resblocks.7.message_ln.bias', 'visual.transformer.resblocks.7.message_attn.in_proj_weight', 'visual.transformer.resblocks.7.message_attn.in_proj_bias', 'visual.transformer.resblocks.7.message_attn.out_proj.weight', 'visual.transformer.resblocks.7.message_attn.out_proj.bias', 'visual.transformer.resblocks.8.message_fc.weight', 'visual.transformer.resblocks.8.message_fc.bias', 'visual.transformer.resblocks.8.message_ln.weight', 'visual.transformer.resblocks.8.message_ln.bias', 'visual.transformer.resblocks.8.message_attn.in_proj_weight', 'visual.transformer.resblocks.8.message_attn.in_proj_bias', 'visual.transformer.resblocks.8.message_attn.out_proj.weight', 'visual.transformer.resblocks.8.message_attn.out_proj.bias', 'visual.transformer.resblocks.9.message_fc.weight', 'visual.transformer.resblocks.9.message_fc.bias', 'visual.transformer.resblocks.9.message_ln.weight', 'visual.transformer.resblocks.9.message_ln.bias', 'visual.transformer.resblocks.9.message_attn.in_proj_weight', 'visual.transformer.resblocks.9.message_attn.in_proj_bias', 'visual.transformer.resblocks.9.message_attn.out_proj.weight', 'visual.transformer.resblocks.9.message_attn.out_proj.bias', 'visual.transformer.resblocks.10.message_fc.weight', 'visual.transformer.resblocks.10.message_fc.bias', 'visual.transformer.resblocks.10.message_ln.weight', 'visual.transformer.resblocks.10.message_ln.bias', 'visual.transformer.resblocks.10.message_attn.in_proj_weight', 'visual.transformer.resblocks.10.message_attn.in_proj_bias', 'visual.transformer.resblocks.10.message_attn.out_proj.weight', 'visual.transformer.resblocks.10.message_attn.out_proj.bias', 'visual.transformer.resblocks.11.message_fc.weight', 'visual.transformer.resblocks.11.message_fc.bias', 'visual.transformer.resblocks.11.message_ln.weight', 'visual.transformer.resblocks.11.message_ln.bias', 'visual.transformer.resblocks.11.message_attn.in_proj_weight', 'visual.transformer.resblocks.11.message_attn.in_proj_bias', 'visual.transformer.resblocks.11.message_attn.out_proj.weight', 'visual.transformer.resblocks.11.message_attn.out_proj.bias', 'prompts_visual_ln.weight', 'prompts_visual_ln.bias', 'conv2.weight'], unexpected_keys=[])
+[2023-12-14 08:37:40 ViT-B/16] (clipvqa.py 201): INFO load pretrained CLIP: _IncompatibleKeys(missing_keys=['prompts_visual_proj', 'prompts_generator.alpha', 'prompts_generator.norm.weight', 'prompts_generator.norm.bias', 'prompts_generator.decoder.0.cross_attn.q_proj.weight', 'prompts_generator.decoder.0.cross_attn.k_proj.weight', 'prompts_generator.decoder.0.cross_attn.v_proj.weight', 'prompts_generator.decoder.0.cross_attn.proj.weight', 'prompts_generator.decoder.0.cross_attn.proj.bias', 'prompts_generator.decoder.0.norm1.weight', 'prompts_generator.decoder.0.norm1.bias', 'prompts_generator.decoder.0.norm3.weight', 'prompts_generator.decoder.0.norm3.bias', 'prompts_generator.decoder.0.mlp.0.weight', 'prompts_generator.decoder.0.mlp.0.bias', 'prompts_generator.decoder.0.mlp.3.weight', 'prompts_generator.decoder.0.mlp.3.bias', 'prompts_generator.decoder.1.cross_attn.q_proj.weight', 'prompts_generator.decoder.1.cross_attn.k_proj.weight', 'prompts_generator.decoder.1.cross_attn.v_proj.weight', 'prompts_generator.decoder.1.cross_attn.proj.weight', 'prompts_generator.decoder.1.cross_attn.proj.bias', 'prompts_generator.decoder.1.norm1.weight', 'prompts_generator.decoder.1.norm1.bias', 'prompts_generator.decoder.1.norm3.weight', 'prompts_generator.decoder.1.norm3.bias', 'prompts_generator.decoder.1.mlp.0.weight', 'prompts_generator.decoder.1.mlp.0.bias', 'prompts_generator.decoder.1.mlp.3.weight', 'prompts_generator.decoder.1.mlp.3.bias', 'mit.positional_embedding', 'mit.alpha', 'mit.resblocks.0.attn.in_proj_weight', 'mit.resblocks.0.attn.in_proj_bias', 'mit.resblocks.0.attn.out_proj.weight', 'mit.resblocks.0.attn.out_proj.bias', 'mit.resblocks.0.ln_1.weight', 'mit.resblocks.0.ln_1.bias', 'mit.resblocks.0.mlp.c_fc.weight', 'mit.resblocks.0.mlp.c_fc.bias', 'mit.resblocks.0.mlp.c_proj.weight', 'mit.resblocks.0.mlp.c_proj.bias', 'mit.resblocks.0.ln_2.weight', 'mit.resblocks.0.ln_2.bias', 'visual.transformer.resblocks.0.message_fc.weight', 'visual.transformer.resblocks.0.message_fc.bias', 'visual.transformer.resblocks.0.message_ln.weight', 'visual.transformer.resblocks.0.message_ln.bias', 'visual.transformer.resblocks.0.message_attn.in_proj_weight', 'visual.transformer.resblocks.0.message_attn.in_proj_bias', 'visual.transformer.resblocks.0.message_attn.out_proj.weight', 'visual.transformer.resblocks.0.message_attn.out_proj.bias', 'visual.transformer.resblocks.1.message_fc.weight', 'visual.transformer.resblocks.1.message_fc.bias', 'visual.transformer.resblocks.1.message_ln.weight', 'visual.transformer.resblocks.1.message_ln.bias', 'visual.transformer.resblocks.1.message_attn.in_proj_weight', 'visual.transformer.resblocks.1.message_attn.in_proj_bias', 'visual.transformer.resblocks.1.message_attn.out_proj.weight', 'visual.transformer.resblocks.1.message_attn.out_proj.bias', 'visual.transformer.resblocks.2.message_fc.weight', 'visual.transformer.resblocks.2.message_fc.bias', 'visual.transformer.resblocks.2.message_ln.weight', 'visual.transformer.resblocks.2.message_ln.bias', 'visual.transformer.resblocks.2.message_attn.in_proj_weight', 'visual.transformer.resblocks.2.message_attn.in_proj_bias', 'visual.transformer.resblocks.2.message_attn.out_proj.weight', 'visual.transformer.resblocks.2.message_attn.out_proj.bias', 'visual.transformer.resblocks.3.message_fc.weight', 'visual.transformer.resblocks.3.message_fc.bias', 'visual.transformer.resblocks.3.message_ln.weight', 'visual.transformer.resblocks.3.message_ln.bias', 'visual.transformer.resblocks.3.message_attn.in_proj_weight', 'visual.transformer.resblocks.3.message_attn.in_proj_bias', 'visual.transformer.resblocks.3.message_attn.out_proj.weight', 'visual.transformer.resblocks.3.message_attn.out_proj.bias', 'visual.transformer.resblocks.4.message_fc.weight', 'visual.transformer.resblocks.4.message_fc.bias', 'visual.transformer.resblocks.4.message_ln.weight', 'visual.transformer.resblocks.4.message_ln.bias', 'visual.transformer.resblocks.4.message_attn.in_proj_weight', 'visual.transformer.resblocks.4.message_attn.in_proj_bias', 'visual.transformer.resblocks.4.message_attn.out_proj.weight', 'visual.transformer.resblocks.4.message_attn.out_proj.bias', 'visual.transformer.resblocks.5.message_fc.weight', 'visual.transformer.resblocks.5.message_fc.bias', 'visual.transformer.resblocks.5.message_ln.weight', 'visual.transformer.resblocks.5.message_ln.bias', 'visual.transformer.resblocks.5.message_attn.in_proj_weight', 'visual.transformer.resblocks.5.message_attn.in_proj_bias', 'visual.transformer.resblocks.5.message_attn.out_proj.weight', 'visual.transformer.resblocks.5.message_attn.out_proj.bias', 'visual.transformer.resblocks.6.message_fc.weight', 'visual.transformer.resblocks.6.message_fc.bias', 'visual.transformer.resblocks.6.message_ln.weight', 'visual.transformer.resblocks.6.message_ln.bias', 'visual.transformer.resblocks.6.message_attn.in_proj_weight', 'visual.transformer.resblocks.6.message_attn.in_proj_bias', 'visual.transformer.resblocks.6.message_attn.out_proj.weight', 'visual.transformer.resblocks.6.message_attn.out_proj.bias', 'visual.transformer.resblocks.7.message_fc.weight', 'visual.transformer.resblocks.7.message_fc.bias', 'visual.transformer.resblocks.7.message_ln.weight', 'visual.transformer.resblocks.7.message_ln.bias', 'visual.transformer.resblocks.7.message_attn.in_proj_weight', 'visual.transformer.resblocks.7.message_attn.in_proj_bias', 'visual.transformer.resblocks.7.message_attn.out_proj.weight', 'visual.transformer.resblocks.7.message_attn.out_proj.bias', 'visual.transformer.resblocks.8.message_fc.weight', 'visual.transformer.resblocks.8.message_fc.bias', 'visual.transformer.resblocks.8.message_ln.weight', 'visual.transformer.resblocks.8.message_ln.bias', 'visual.transformer.resblocks.8.message_attn.in_proj_weight', 'visual.transformer.resblocks.8.message_attn.in_proj_bias', 'visual.transformer.resblocks.8.message_attn.out_proj.weight', 'visual.transformer.resblocks.8.message_attn.out_proj.bias', 'visual.transformer.resblocks.9.message_fc.weight', 'visual.transformer.resblocks.9.message_fc.bias', 'visual.transformer.resblocks.9.message_ln.weight', 'visual.transformer.resblocks.9.message_ln.bias', 'visual.transformer.resblocks.9.message_attn.in_proj_weight', 'visual.transformer.resblocks.9.message_attn.in_proj_bias', 'visual.transformer.resblocks.9.message_attn.out_proj.weight', 'visual.transformer.resblocks.9.message_attn.out_proj.bias', 'visual.transformer.resblocks.10.message_fc.weight', 'visual.transformer.resblocks.10.message_fc.bias', 'visual.transformer.resblocks.10.message_ln.weight', 'visual.transformer.resblocks.10.message_ln.bias', 'visual.transformer.resblocks.10.message_attn.in_proj_weight', 'visual.transformer.resblocks.10.message_attn.in_proj_bias', 'visual.transformer.resblocks.10.message_attn.out_proj.weight', 'visual.transformer.resblocks.10.message_attn.out_proj.bias', 'visual.transformer.resblocks.11.message_fc.weight', 'visual.transformer.resblocks.11.message_fc.bias', 'visual.transformer.resblocks.11.message_ln.weight', 'visual.transformer.resblocks.11.message_ln.bias', 'visual.transformer.resblocks.11.message_attn.in_proj_weight', 'visual.transformer.resblocks.11.message_attn.in_proj_bias', 'visual.transformer.resblocks.11.message_attn.out_proj.weight', 'visual.transformer.resblocks.11.message_attn.out_proj.bias', 'prompts_visual_ln.weight', 'prompts_visual_ln.bias', 'conv2.weight'], unexpected_keys=[])
+[2023-12-14 08:37:40 ViT-B/16] (clipvqa.py 201): INFO load pretrained CLIP: _IncompatibleKeys(missing_keys=['prompts_visual_proj', 'prompts_generator.alpha', 'prompts_generator.norm.weight', 'prompts_generator.norm.bias', 'prompts_generator.decoder.0.cross_attn.q_proj.weight', 'prompts_generator.decoder.0.cross_attn.k_proj.weight', 'prompts_generator.decoder.0.cross_attn.v_proj.weight', 'prompts_generator.decoder.0.cross_attn.proj.weight', 'prompts_generator.decoder.0.cross_attn.proj.bias', 'prompts_generator.decoder.0.norm1.weight', 'prompts_generator.decoder.0.norm1.bias', 'prompts_generator.decoder.0.norm3.weight', 'prompts_generator.decoder.0.norm3.bias', 'prompts_generator.decoder.0.mlp.0.weight', 'prompts_generator.decoder.0.mlp.0.bias', 'prompts_generator.decoder.0.mlp.3.weight', 'prompts_generator.decoder.0.mlp.3.bias', 'prompts_generator.decoder.1.cross_attn.q_proj.weight', 'prompts_generator.decoder.1.cross_attn.k_proj.weight', 'prompts_generator.decoder.1.cross_attn.v_proj.weight', 'prompts_generator.decoder.1.cross_attn.proj.weight', 'prompts_generator.decoder.1.cross_attn.proj.bias', 'prompts_generator.decoder.1.norm1.weight', 'prompts_generator.decoder.1.norm1.bias', 'prompts_generator.decoder.1.norm3.weight', 'prompts_generator.decoder.1.norm3.bias', 'prompts_generator.decoder.1.mlp.0.weight', 'prompts_generator.decoder.1.mlp.0.bias', 'prompts_generator.decoder.1.mlp.3.weight', 'prompts_generator.decoder.1.mlp.3.bias', 'mit.positional_embedding', 'mit.alpha', 'mit.resblocks.0.attn.in_proj_weight', 'mit.resblocks.0.attn.in_proj_bias', 'mit.resblocks.0.attn.out_proj.weight', 'mit.resblocks.0.attn.out_proj.bias', 'mit.resblocks.0.ln_1.weight', 'mit.resblocks.0.ln_1.bias', 'mit.resblocks.0.mlp.c_fc.weight', 'mit.resblocks.0.mlp.c_fc.bias', 'mit.resblocks.0.mlp.c_proj.weight', 'mit.resblocks.0.mlp.c_proj.bias', 'mit.resblocks.0.ln_2.weight', 'mit.resblocks.0.ln_2.bias', 'visual.transformer.resblocks.0.message_fc.weight', 'visual.transformer.resblocks.0.message_fc.bias', 'visual.transformer.resblocks.0.message_ln.weight', 'visual.transformer.resblocks.0.message_ln.bias', 'visual.transformer.resblocks.0.message_attn.in_proj_weight', 'visual.transformer.resblocks.0.message_attn.in_proj_bias', 'visual.transformer.resblocks.0.message_attn.out_proj.weight', 'visual.transformer.resblocks.0.message_attn.out_proj.bias', 'visual.transformer.resblocks.1.message_fc.weight', 'visual.transformer.resblocks.1.message_fc.bias', 'visual.transformer.resblocks.1.message_ln.weight', 'visual.transformer.resblocks.1.message_ln.bias', 'visual.transformer.resblocks.1.message_attn.in_proj_weight', 'visual.transformer.resblocks.1.message_attn.in_proj_bias', 'visual.transformer.resblocks.1.message_attn.out_proj.weight', 'visual.transformer.resblocks.1.message_attn.out_proj.bias', 'visual.transformer.resblocks.2.message_fc.weight', 'visual.transformer.resblocks.2.message_fc.bias', 'visual.transformer.resblocks.2.message_ln.weight', 'visual.transformer.resblocks.2.message_ln.bias', 'visual.transformer.resblocks.2.message_attn.in_proj_weight', 'visual.transformer.resblocks.2.message_attn.in_proj_bias', 'visual.transformer.resblocks.2.message_attn.out_proj.weight', 'visual.transformer.resblocks.2.message_attn.out_proj.bias', 'visual.transformer.resblocks.3.message_fc.weight', 'visual.transformer.resblocks.3.message_fc.bias', 'visual.transformer.resblocks.3.message_ln.weight', 'visual.transformer.resblocks.3.message_ln.bias', 'visual.transformer.resblocks.3.message_attn.in_proj_weight', 'visual.transformer.resblocks.3.message_attn.in_proj_bias', 'visual.transformer.resblocks.3.message_attn.out_proj.weight', 'visual.transformer.resblocks.3.message_attn.out_proj.bias', 'visual.transformer.resblocks.4.message_fc.weight', 'visual.transformer.resblocks.4.message_fc.bias', 'visual.transformer.resblocks.4.message_ln.weight', 'visual.transformer.resblocks.4.message_ln.bias', 'visual.transformer.resblocks.4.message_attn.in_proj_weight', 'visual.transformer.resblocks.4.message_attn.in_proj_bias', 'visual.transformer.resblocks.4.message_attn.out_proj.weight', 'visual.transformer.resblocks.4.message_attn.out_proj.bias', 'visual.transformer.resblocks.5.message_fc.weight', 'visual.transformer.resblocks.5.message_fc.bias', 'visual.transformer.resblocks.5.message_ln.weight', 'visual.transformer.resblocks.5.message_ln.bias', 'visual.transformer.resblocks.5.message_attn.in_proj_weight', 'visual.transformer.resblocks.5.message_attn.in_proj_bias', 'visual.transformer.resblocks.5.message_attn.out_proj.weight', 'visual.transformer.resblocks.5.message_attn.out_proj.bias', 'visual.transformer.resblocks.6.message_fc.weight', 'visual.transformer.resblocks.6.message_fc.bias', 'visual.transformer.resblocks.6.message_ln.weight', 'visual.transformer.resblocks.6.message_ln.bias', 'visual.transformer.resblocks.6.message_attn.in_proj_weight', 'visual.transformer.resblocks.6.message_attn.in_proj_bias', 'visual.transformer.resblocks.6.message_attn.out_proj.weight', 'visual.transformer.resblocks.6.message_attn.out_proj.bias', 'visual.transformer.resblocks.7.message_fc.weight', 'visual.transformer.resblocks.7.message_fc.bias', 'visual.transformer.resblocks.7.message_ln.weight', 'visual.transformer.resblocks.7.message_ln.bias', 'visual.transformer.resblocks.7.message_attn.in_proj_weight', 'visual.transformer.resblocks.7.message_attn.in_proj_bias', 'visual.transformer.resblocks.7.message_attn.out_proj.weight', 'visual.transformer.resblocks.7.message_attn.out_proj.bias', 'visual.transformer.resblocks.8.message_fc.weight', 'visual.transformer.resblocks.8.message_fc.bias', 'visual.transformer.resblocks.8.message_ln.weight', 'visual.transformer.resblocks.8.message_ln.bias', 'visual.transformer.resblocks.8.message_attn.in_proj_weight', 'visual.transformer.resblocks.8.message_attn.in_proj_bias', 'visual.transformer.resblocks.8.message_attn.out_proj.weight', 'visual.transformer.resblocks.8.message_attn.out_proj.bias', 'visual.transformer.resblocks.9.message_fc.weight', 'visual.transformer.resblocks.9.message_fc.bias', 'visual.transformer.resblocks.9.message_ln.weight', 'visual.transformer.resblocks.9.message_ln.bias', 'visual.transformer.resblocks.9.message_attn.in_proj_weight', 'visual.transformer.resblocks.9.message_attn.in_proj_bias', 'visual.transformer.resblocks.9.message_attn.out_proj.weight', 'visual.transformer.resblocks.9.message_attn.out_proj.bias', 'visual.transformer.resblocks.10.message_fc.weight', 'visual.transformer.resblocks.10.message_fc.bias', 'visual.transformer.resblocks.10.message_ln.weight', 'visual.transformer.resblocks.10.message_ln.bias', 'visual.transformer.resblocks.10.message_attn.in_proj_weight', 'visual.transformer.resblocks.10.message_attn.in_proj_bias', 'visual.transformer.resblocks.10.message_attn.out_proj.weight', 'visual.transformer.resblocks.10.message_attn.out_proj.bias', 'visual.transformer.resblocks.11.message_fc.weight', 'visual.transformer.resblocks.11.message_fc.bias', 'visual.transformer.resblocks.11.message_ln.weight', 'visual.transformer.resblocks.11.message_ln.bias', 'visual.transformer.resblocks.11.message_attn.in_proj_weight', 'visual.transformer.resblocks.11.message_attn.in_proj_bias', 'visual.transformer.resblocks.11.message_attn.out_proj.weight', 'visual.transformer.resblocks.11.message_attn.out_proj.bias', 'prompts_visual_ln.weight', 'prompts_visual_ln.bias', 'conv2.weight'], unexpected_keys=[])
