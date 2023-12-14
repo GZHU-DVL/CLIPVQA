@@ -46,4 +46,4 @@ python -m torch.distributed.launch --nproc_per_node=1 main.py \
 ```
 
 # Acknowledgements
-Parts of the codes are borrowed from [mmaction2](https://github.com/open-mmlab/mmaction2), [Swin](https://github.com/microsoft/Swin-Transformer) and [CLIP](https://github.com/openai/CLIP). Sincere thanks to their wonderful works.
+Parts of the codes are borrowed from [X-CLIP](https://github.com/microsoft/VideoX/blob/master/X-CLIP), [CLIP](https://github.com/openai/CLIP). Sincere thanks to their wonderful works.
